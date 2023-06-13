@@ -101,7 +101,7 @@ export async function getServerSideProps() {
       <tbody>
 
         {currentRows.map((data,i)=>(
-<tr className="bg-white border-b  hover:bg-gray-50 ">
+<tr key={i} className="bg-white border-b  hover:bg-gray-50 ">
 <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
 {data.id}
 </th>
