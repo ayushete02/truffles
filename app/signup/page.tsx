@@ -3,8 +3,6 @@ import React from 'react';
 import Navbar from '../navbar/pages';
 import Link from 'next/link';
 import { useState } from 'react';
-import Router from 'next/router';
-import { Console } from 'console';
 
 const Signup = () => {
 
