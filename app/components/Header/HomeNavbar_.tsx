@@ -1,8 +1,8 @@
 "use client";
 import Image from 'next/image'
 import React, { useState } from 'react'
-import logo from '../../public/Logo.svg'
-import wallet from '../components/Icons/Vector.svg'
+import logo from '../../../public/Logo.svg'
+import wallet from '../Icons/Vector.svg'
 import Link from 'next/link';
 declare var window: any
 
