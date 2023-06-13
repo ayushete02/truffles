@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import Navbar from '../navbar/pages';
+import Navbar from '../components/Header/navbar';
 import Link from 'next/link';
 import { useState } from 'react';
 

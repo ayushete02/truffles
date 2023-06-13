@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeNavbar from '../homenavbar/pages';
+import HomeNavbar from '../components/Header/homenavbar';
 import AssetTable from '../components/AssetTable';
 import Slider from '../components/Slider';
 
