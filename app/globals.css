@@ -51,3 +51,7 @@ body {
       --tw-translate-x: 0;
   }
 }
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
