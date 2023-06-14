@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 const Signup = () => {
+ 
+
     const [selectedOption, setSelectedOption] = useState('');
 
     const [formData, setFormData] = useState({
@@ -28,8 +30,6 @@ const Signup = () => {
     };
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-        // remove
-        // Router.replace('/login');
         event.preventDefault();
 
         try {
@@ -57,10 +57,10 @@ const Signup = () => {
 
     return (<div className='bg-[#F4F4F4]'>
         <Navbar />
-        <section className="">
+        <section className=" h-screen">
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto  lg:py-0">
 
-                <div className="w-full bg-white rounded-lg md:my-[200px] sm:max-w-lg xl:p-0 ">
+                <div className="w-full bg-white rounded-lg md:my-[200px] lg:mt-0 mt-28 sm:max-w-lg xl:p-0 ">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8 ">
                         <div className='text-center mb-12'>
 
@@ -84,7 +84,7 @@ const Signup = () => {
                             </div>
                             <div>
                                 <label htmlFor="country" className="block mb-2 text-sm font-medium text-gray-900 ">Country of Residence</label>
-                                <select id="country" name='country' value={selectedOption} onChange={handleSelectChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                <select id="country" name='country' onChange={handleSelectChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                     <option value="United States">United States</option>
                                     <option value="Canada">Canada</option>
                                     <option value="France">France</option>

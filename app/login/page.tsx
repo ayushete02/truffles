@@ -3,10 +3,8 @@ import React from 'react';
 import Navbar from '../components/Header/Navbar';
 import Link from 'next/link';
 import { useState } from 'react';
-import Router from 'next/router';
 
-const Login = () => {
-  
+const Login = () =>{  
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -33,7 +31,7 @@ const Login = () => {
       console.log('Response:', data);
       if (response.ok) {
         alert('Success: ' + data.msg);
-        window.location.href ="/dashboard";
+        window.location.href = "/dashboard";
       } else {
         alert('Error: ' + data.msg);
       }
@@ -46,10 +44,10 @@ const Login = () => {
 
   return (<>
     <Navbar />
-    <section className="bg-[#F4F4F4] ">
+    <section className="bg-[#F4F4F4] h-screen  items-center ">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
 
-        <div className="w-full bg-white rounded-lg md:mt-0 sm:max-w-lg xl:p-0">
+        <div className="w-full bg-white rounded-lg lg:mt-0 mt-48  sm:max-w-lg xl:p-0">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8 ">
             <div className='text-center mb-12'>
 

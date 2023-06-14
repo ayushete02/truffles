@@ -23,6 +23,7 @@ const HomeNavbar = () => {
     return (
         <nav className="bg-white  fixed w-full z-50 top-0 left-0 border-b border-gray-200 ">
             <div className="mx-10 flex flex-wrap items-center justify-between p-4">
+              
                 <Link href="/login" className="flex items-center">
                     <Image src={logo} className="h-8 mr-3" alt="Flowbite Logo" />
                 </Link> 
