@@ -45,8 +45,7 @@ const Signup = () => {
 
             console.log('Response:', data);
             if (response.ok) {
-                alert('Success: ' + data.msg);
-                window.location.href = "/login";
+                alert('Success: ' + data.msg + "\nLogin Now");
             } else {
                 alert('Error: ' + data.msg);
             }
