@@ -36,7 +36,7 @@ const AssetTable = () => {
   };
 
   function FilterAsset(filter:String) {
-    if (filter == 'Sent') {
+    if (filter == 'sent') {
       var datafilter = AssetData.filter(row => row.status == filter)
       setData(datafilter)
     }
