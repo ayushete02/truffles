@@ -1,10 +1,10 @@
-import './globals.css'
+import '../globals.css'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Next App',
+  title: 'Truffles | Signup',
 }
 
 export default function RootLayout({
@@ -12,9 +12,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+  return (<div className='bg-[#F4F4F4]'>
+    {children}
+    </div>
   )
 }

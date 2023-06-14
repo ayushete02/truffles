@@ -56,10 +56,10 @@ const Signup = () => {
 
     return (<div className='bg-[#F4F4F4]'>
         <Navbar />
-        <section className=" h-screen">
+        <section className="  bg-[#F4F4F4] ">
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto  lg:py-0">
 
-                <div className="w-full bg-white rounded-lg md:my-[200px] lg:mt-0 mt-28 sm:max-w-lg xl:p-0 ">
+                <div className="w-full bg-white rounded-lg md:my-[150px] lg:mt-32  my-28 sm:max-w-lg xl:p-0 ">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8 ">
                         <div className='text-center mb-12'>
 
