@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import logo from '../../../public/Logo.svg'
 import Link from 'next/link'
+import router from 'next/router'
 
 const Navbar = () => {
     return (

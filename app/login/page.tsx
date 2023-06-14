@@ -18,12 +18,10 @@ const Login = () => {
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-      // remove
-      Router.replace('/login');
     event.preventDefault();
 
     try {
-      const response = await fetch('https://api.example.com/login', {
+      const response = await fetch('https://truffles-assignment-backend-production.up.railway.app/api/v1/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -33,6 +31,12 @@ const Login = () => {
       const data = await response.json();
 
       console.log('Response:', data);
+      if (response.ok) {
+        alert('Success: ' + data.msg);
+        window.location.href ="/dashboard";
+      } else {
+        alert('Error: ' + data.msg);
+      }
       // Process the response data as needed
     } catch (error) {
       console.error('Error:', error);
