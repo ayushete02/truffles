@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 const Signup = () => {
+    const [selectedOption, setSelectedOption] = useState('');
 
     const [formData, setFormData] = useState({
         "email": "",
@@ -13,41 +14,46 @@ const Signup = () => {
         "country": "",
         "company": "",
         "phone": 12345678
-      });
-    
-      const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    });
+
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
         setFormData({ ...formData, [name]: value });
         // console.log(JSON.stringify(formData));
-      };
-    
-      const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    };
+
+    const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const { value } = event.target;
+        setFormData({ ...formData, country: value });
+    };
+
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         // remove
         // Router.replace('/login');
         event.preventDefault();
-    
+
         try {
-          const response = await fetch('https://truffles-assignment-backend-production.up.railway.app/api/v1/register', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-          });
-          console.log(JSON.stringify({"email":"qwe@erfg","password":"jkl","name":"dcv","country":"","company":"sdfv","phone":12345678}))
-          const data = await response.json();
-    
-          console.log('Response:', data);
-          if (response.ok) {
-            alert('Success: ' + data.msg);
-            window.location.href ="/login";
-          } else {
-            alert('Error: ' + data.msg);
-          }
+            const response = await fetch('https://truffles-assignment-backend-production.up.railway.app/api/v1/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+            console.log(JSON.stringify({ "email": "qwe@erfg", "password": "jkl", "name": "dcv", "country": "", "company": "sdfv", "phone": 12345678 }))
+            const data = await response.json();
+
+            console.log('Response:', data);
+            if (response.ok) {
+                alert('Success: ' + data.msg);
+                window.location.href = "/login";
+            } else {
+                alert('Error: ' + data.msg);
+            }
         } catch (error) {
-          console.error('Error:', error);
+            console.error('Error:', error);
         }
-      };
+    };
 
     return (<div className='bg-[#F4F4F4]'>
         <Navbar />
@@ -78,11 +84,23 @@ const Signup = () => {
                             </div>
                             <div>
                                 <label htmlFor="country" className="block mb-2 text-sm font-medium text-gray-900 ">Country of Residence</label>
-                                <select id="country" name='country'  onChange={handleInputChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                    <option>United States</option>
-                                    <option>Canada</option>
-                                    <option>France</option>
-                                    <option>Germany</option>
+                                <select id="country" name='country' value={selectedOption} onChange={handleSelectChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                    <option value="United States">United States</option>
+                                    <option value="Canada">Canada</option>
+                                    <option value="France">France</option>
+                                    <option value="Germany">Germany</option>
+                                    <option value="Australia">Australia</option>
+                                    <option value="United Kingdom">United Kingdom</option>
+                                    <option value="Spain">Spain</option>
+                                    <option value="Italy">Italy</option>
+                                    <option value="Japan">Japan</option>
+                                    <option value="China">China</option>
+                                    <option value="India">India</option>
+                                    <option value="Brazil">Brazil</option>
+                                    <option value="Mexico">Mexico</option>
+                                    <option value="Argentina">Argentina</option>
+                                    <option value="Russia">Russia</option>
+                                    <option value="South Africa">South Africa</option>
                                 </select>
                             </div>
                             <div>
@@ -90,25 +108,35 @@ const Signup = () => {
                                 <input type="Company Name" onChange={handleInputChange} name="company" id="company" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="United States" required />
                             </div>
                             <div>
-                                <label htmlFor="phone"  className="block mb-2 text-sm font-medium text-[#374151] ">Mobile Number</label>
+                                <label htmlFor="phone" className="block mb-2 text-sm font-medium text-[#374151] ">Mobile Number</label>
                                 <div className='flex'>
-                                    <select id="dropdown-button" className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 ">US 
-                                        <option>US</option>
-                                        <option>UK</option>
-                                        <option>FR</option>
-                                        <option>GR</option>
+                                    <select id="dropdown-button" className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 ">US
+                                        <option value="US">US</option>
+                                        <option value="UK">UK</option>
+                                        <option value="FR">FR</option>
+                                        <option value="GR">GR</option>
+                                        <option value="AU">AU</option>
+                                        <option value="CA">CA</option>
+                                        <option value="JP">JP</option>
+                                        <option value="CN">CN</option>
+                                        <option value="IN">IN</option>
+                                        <option value="BR">BR</option>
+                                        <option value="MX">MX</option>
+                                        <option value="AR">AR</option>
+                                        <option value="RU">RU</option>
+                                        <option value="ZA">ZA</option>
                                     </select>
 
                                     <div className="relative w-full">
-                                        <input type="number" id="phone" name='phone' onChange={handleInputChange}  className="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="+1 (555) 987-6543" required />
+                                        <input type="number" id="phone" name='phone' onChange={handleInputChange} className="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="+1 (555) 987-6543" required />
 
                                     </div>
                                 </div>
                             </div>
-            
+
                             <button type="submit" className="w-full text-white bg-[#194BFB] hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Create Account</button>
                             <p className="text-sm font-light text-gray-500 text-center">
-                                
+
                                 By signing up, you agree to our Terms of use & privacy policy <br />
                                 Already have an account <Link href="/login" className="font-medium text-[#194BFB] hover:underline ">Sign in</Link>
                             </p>
